@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.description  = 'IJSUExtension for All Project, more Pleasantly surprised UI'
   s.source       = { :git => "https://github.com/wangjinshan/IJSUExtension.git", :tag => "#{s.version}" }
 
-  s.source_files  = "IJSUExtension/**/*"
+  s.source_files  = "IJSUExtension/*.{h,m}"
 
   
 
