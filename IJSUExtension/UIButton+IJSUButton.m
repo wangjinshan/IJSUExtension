@@ -7,6 +7,7 @@
 //
 
 #import "UIButton+IJSUButton.h"
+#import "IJSUConst.h"
 
 @implementation UIButton (IJSUButton)
 
@@ -25,11 +26,11 @@
     spring.toValue = @(2);
     //settlingDuration 结算时间 返回弹簧动画到停止时的估算时间，根据当前的动画参数估算 通常弹簧动画的时间使用结算时间比较准确
     spring.removedOnCompletion = NO;
-    spring.duration = spring.settlingDuration;
+    if (iOS9_1Later) spring.duration = spring.settlingDuration;
     [self.layer addAnimation:spring forKey:nil];
     spring.toValue = @(1);
     //settlingDuration 结算时间 返回弹簧动画到停止时的估算时间，根据当前的动画参数估算 通常弹簧动画的时间使用结算时间比较准确
-    spring.duration = spring.settlingDuration;
+    if (iOS9_1Later)  spring.duration = spring.settlingDuration;
     [self.layer addAnimation:spring forKey:nil];
 }
 
