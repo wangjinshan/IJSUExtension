@@ -10,7 +10,6 @@
 
 @interface UITextField (IJSUTextField)
 /*自定义的属性 */
-@property(nonatomic,strong) UIColor  *js_placeholderColor;
-
+@property (nonatomic, strong) UIColor *js_placeholderColor;
 
 @end

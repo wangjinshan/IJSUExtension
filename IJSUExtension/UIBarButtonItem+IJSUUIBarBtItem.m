@@ -10,39 +10,39 @@
 
 @implementation UIBarButtonItem (IJSUUIBarBtItem)
 
-+ (UIBarButtonItem *) setBarButtonItem:(UIImage *)image heightImage:(UIImage *)heightImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
++ (UIBarButtonItem *)setBarButtonItem:(UIImage *)image heightImage:(UIImage *)heightImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
 {
     //    左边的按钮
-    UIButton *button =[UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage: image
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:image
             forState:UIControlStateNormal];
     [button setImage:heightImage
             forState:UIControlStateHighlighted];
     [button sizeToFit];
     [button addTarget:target action:action forControlEvents:controlEvents];
-    UIView *contentView =[[UIView alloc]initWithFrame:button.bounds];    // 解决 button点击范围扩大的问题
+    UIView *contentView = [[UIView alloc] initWithFrame:button.bounds]; // 解决 button点击范围扩大的问题
     [contentView addSubview:button];
-    return  [[UIBarButtonItem alloc]initWithCustomView:contentView];
+    return [[UIBarButtonItem alloc] initWithCustomView:contentView];
 }
 
-+ (UIBarButtonItem *) setBarButtonItem:(UIImage *)image selectImage:(UIImage *)selectImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
++ (UIBarButtonItem *)setBarButtonItem:(UIImage *)image selectImage:(UIImage *)selectImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
 {
     //    左边的按钮
-    UIButton *button =[UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage: image
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:image
             forState:UIControlStateNormal];
     [button setImage:selectImage
             forState:UIControlStateSelected];
     [button sizeToFit];
     [button addTarget:target action:action forControlEvents:controlEvents];
-    UIView *contentView =[[UIView alloc]initWithFrame:button.bounds];    // 解决 button点击范围扩大的问题
+    UIView *contentView = [[UIView alloc] initWithFrame:button.bounds]; // 解决 button点击范围扩大的问题
     [contentView addSubview:button];
-    return  [[UIBarButtonItem alloc]initWithCustomView:contentView];
+    return [[UIBarButtonItem alloc] initWithCustomView:contentView];
 }
 
-+ (UIButton *) setBackButtonImage:(UIImage *)image imageHeight:(UIImage *)imageHeight selectImage:(UIImage *)selectImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents title:(NSString *)title
++ (UIButton *)setBackButtonImage:(UIImage *)image imageHeight:(UIImage *)imageHeight selectImage:(UIImage *)selectImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents title:(NSString *)title
 {
-    UIButton *button =[UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:title forState:UIControlStateNormal];
     [button setImage:image
             forState:UIControlStateNormal];
@@ -58,8 +58,5 @@
     button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     return button;
 }
-
-
-
 
 @end

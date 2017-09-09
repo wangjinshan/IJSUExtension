@@ -22,7 +22,7 @@
  *
  *  @return 自定义的 UIBarButtonItem
  */
-+ (UIBarButtonItem *) setBarButtonItem:(UIImage *)image heightImage:(UIImage *)heightImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
++ (UIBarButtonItem *)setBarButtonItem:(UIImage *)image heightImage:(UIImage *)heightImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
 
 /**
  *  创建自定义的 导航条button
@@ -35,7 +35,7 @@
  *
  *  @return 自定义的 UIBarButtonItem
  */
-+ (UIBarButtonItem *) setBarButtonItem:(UIImage *)image selectImage:(UIImage *)selectImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
++ (UIBarButtonItem *)setBarButtonItem:(UIImage *)image selectImage:(UIImage *)selectImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
 
 /**
  *  快速创建一个 button
@@ -51,21 +51,6 @@
  *  @return 自定义的 UIButton
  */
 
-+ (UIButton *) setBackButtonImage:(UIImage *)image imageHeight:(UIImage *)imageHeight selectImage:(UIImage *)selectImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents title:(NSString *)title;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
++ (UIButton *)setBackButtonImage:(UIImage *)image imageHeight:(UIImage *)imageHeight selectImage:(UIImage *)selectImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents title:(NSString *)title;
 
 @end

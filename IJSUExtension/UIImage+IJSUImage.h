@@ -12,7 +12,6 @@
  */
 @interface UIImage (IJSUImage)
 
-
 /**
  *  返回一张抗锯齿图片
  *  @return 本质：在图片生成一个透明为1的像素边框
@@ -27,7 +26,7 @@
  *  @return 处理好的圆形图
  */
 
-+ (UIImage *) imageCircleFromOriginImage:(UIImage *)originImage;
++ (UIImage *)imageCircleFromOriginImage:(UIImage *)originImage;
 
 /**
  *  根据图片名字返回圆形图
@@ -36,5 +35,53 @@
  *
  *  @return 处理好的圆形图
  */
-+ (UIImage *) imageCircleFromImageName:(NSString *)imageName;
++ (UIImage *)imageCircleFromImageName:(NSString *)imageName;
+
+/**
+ *  格局角度旋转图片
+ */
+- (UIImage *)imageRotatedByRadians:(CGFloat)radians;
+
+/**
+ *  获取一张高斯模糊图,大小是原图大小
+ *   @param blurNumber 模糊度数值,越大越模糊
+ */
+- (UIImage *)getImageFilterForGaussianBlur:(int)blurNumber;
+
+/**
+ *  获取一张马赛克图
+ *   @param level 模糊度数值,越大像素点越多,效果越明显
+ */
+- (UIImage *)getMosaicImageFromOrginImageBlockLevel:(NSUInteger)level;
+
+/**
+ *  CoreImage 获取一张马赛克图
+  *   @param pixel 模糊度数值,越大像素点越多
+ */
+- (UIImage *)getMosaicImageFromOrginImageFromCoreImagePixelSize:(int)pixel;
+
+/**
+ *  绘制一张原图
+ */
+- (UIImage *)getImageWithOldImage;
+
+/////待测试
+//+ (CGRect)getViewBoundWith:(UIImage*)image;
+//
+//+ (UIImage*)getScaleImageWith:(UIImage*)image;
+//
+//+ (UIImage*)getImageWithOldImage:(UIImage*)image;
+//
+//+ (UIImage*)getRotationWithImage:(UIImage*)image withOrientation:(UIDeviceOrientation)orientation;
+//
+//+ (UIImage*)getUnrotationWithImage:(UIImage*)image withOrientation:(UIDeviceOrientation)orientation;
+//
+//+ (UIImage *)rotatedByDegrees:(CGFloat)degrees withImage:(UIImage*)image;
+//
+//+ (UIImage *)rotatedWithImage:(UIImage*)image;
+//
+//+ (CGSize)getCutViewSizeWith:(CGSize)bSize;
+//
+//+ (CGSize)getCutImageViewSizeWith:(CGSize)bSize cutViewSize:(CGSize)cSize;
+
 @end
