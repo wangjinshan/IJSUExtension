@@ -7,7 +7,6 @@
 //
 
 #import "IJSLodingView.h"
-#import <IJSFoundation/IJSFoundation.h>
 
 @interface IJSLodingView ()
 
@@ -22,7 +21,9 @@
     lodingView.layer.borderWidth = 1;
     lodingView.layer.cornerRadius = 5;
     lodingView.layer.masksToBounds = YES;
-    lodingView.backgroundColor = [IJSFColor colorWithR:41 G:25 B:10 alpha:1];
+    
+    lodingView.backgroundColor = [UIColor colorWithRed:41 / 256.0 green:25 / 256.0 blue:10 / 256.0 alpha:1];
+    
     UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:(UIActivityIndicatorViewStyleGray)];
     indicatorView.frame = CGRectMake(0, 0, 150, 130);
     indicatorView.color = [UIColor whiteColor];
