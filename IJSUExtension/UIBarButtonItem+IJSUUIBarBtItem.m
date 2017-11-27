@@ -8,7 +8,6 @@
 
 #import "UIBarButtonItem+IJSUUIBarBtItem.h"
 
-
 @implementation UIBarButtonItem (IJSUUIBarBtItem)
 
 + (UIBarButtonItem *)setBarButtonItem:(UIImage *)image heightImage:(UIImage *)heightImage addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents

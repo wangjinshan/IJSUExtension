@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface UITextField (IJSUTextField)
 /*自定义的属性 */
 @property (nonatomic, strong) UIColor *js_placeholderColor;

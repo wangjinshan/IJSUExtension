@@ -8,11 +8,9 @@
 
 #import "IJSLodingView.h"
 
-
 @interface IJSLodingView ()
 
 @end
-
 
 @implementation IJSLodingView
 

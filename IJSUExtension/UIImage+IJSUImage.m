@@ -13,13 +13,13 @@
 #define bitsPerPixel (32)
 #define bytesPerRow (4)
 
-
 @implementation UIImage (IJSUImage)
 
 // 在周边加一个边框为1的透明像素
 - (UIImage *)imageAntialias
 {
-    if (self) {
+    if (self)
+    {
         CGFloat border = 1.0f;
         CGRect rect = CGRectMake(border, border, self.size.width - 2 * border, self.size.height - 2 * border);
         UIImage *img = nil;
@@ -100,7 +100,8 @@
     CIImage *outputImage = filter.outputImage;
     CGImageRef cgImage = [context createCGImage:outputImage fromRect:CGRectMake(0, 0, self.size.width, self.size.height)];
     UIImage *image = [UIImage imageWithCGImage:cgImage];
-    if (cgImage) {
+    if (cgImage)
+    {
         CGImageRelease(cgImage);
     }
     return image;
@@ -111,21 +112,31 @@
     CGSize toSize = image.size;
     CGSize size = CTImageEditPreviewFrame.size;
 
-    if (size.width >= toSize.width && size.height >= toSize.height) { //宽度大于要显示的区域
+    if (size.width >= toSize.width && size.height >= toSize.height)
+    { //宽度大于要显示的区域
         return CGRectMake(0, 0, toSize.width, toSize.height);
-    } else if (size.width < toSize.width && size.height >= toSize.height) { //宽度小于要显示区域，,太长截取
+    }
+    else if (size.width < toSize.width && size.height >= toSize.height)
+    { //宽度小于要显示区域，,太长截取
         CGSize resultSize = CGSizeMake(size.width, toSize.height * size.width / toSize.width);
         return CGRectMake(0, 0, resultSize.width, resultSize.height);
-    } else if (size.width >= toSize.width && size.height < toSize.height) {
+    }
+    else if (size.width >= toSize.width && size.height < toSize.height)
+    {
         CGSize resultSize = CGSizeMake(toSize.width * size.height / toSize.height, size.height);
         return CGRectMake(0, 0, resultSize.width, resultSize.height);
-    } else {
+    }
+    else
+    {
         CGFloat scaleW = toSize.width / size.width;
         CGFloat scaleH = toSize.height / size.height;
         CGSize resultSize;
-        if (scaleW > scaleH) {
+        if (scaleW > scaleH)
+        {
             resultSize = CGSizeMake(size.width, toSize.height / scaleW);
-        } else {
+        }
+        else
+        {
             resultSize = CGSizeMake(toSize.width / scaleH, size.height);
         }
         return CGRectMake(0, 0, resultSize.width, resultSize.height);
@@ -150,9 +161,12 @@
     size.width = size.width * [UIScreen mainScreen].scale;
     size.height = size.height * [UIScreen mainScreen].scale;
 
-    if (size.width >= toSize.width && size.height >= toSize.height) { //宽度大于要显示的区域
+    if (size.width >= toSize.width && size.height >= toSize.height)
+    { //宽度大于要显示的区域
         return image;
-    } else if (size.width < toSize.width && size.height >= toSize.height) { //宽度小于要显示区域，,太长截取
+    }
+    else if (size.width < toSize.width && size.height >= toSize.height)
+    { //宽度小于要显示区域，,太长截取
         CGSize resultSize = CGSizeMake(size.width, toSize.height * size.width / toSize.width);
         UIGraphicsBeginImageContext(resultSize);
         [image drawInRect:CGRectMake(0, 0, resultSize.width, resultSize.height)];
@@ -160,7 +174,9 @@
         UIGraphicsEndImageContext();
 
         return scaledImage;
-    } else if (size.width >= toSize.width && size.height < toSize.height) {
+    }
+    else if (size.width >= toSize.width && size.height < toSize.height)
+    {
         CGSize resultSize = CGSizeMake(toSize.width * size.height / toSize.height, size.height);
         UIGraphicsBeginImageContext(resultSize);
         [image drawInRect:CGRectMake(0, 0, resultSize.width, resultSize.height)];
@@ -168,13 +184,18 @@
         UIGraphicsEndImageContext();
 
         return scaledImage;
-    } else {
+    }
+    else
+    {
         CGFloat scaleW = toSize.width / size.width;
         CGFloat scaleH = toSize.height / size.height;
         CGSize resultSize;
-        if (scaleW > scaleH) {
+        if (scaleW > scaleH)
+        {
             resultSize = CGSizeMake(size.width, toSize.height / scaleW);
-        } else {
+        }
+        else
+        {
             resultSize = CGSizeMake(toSize.width / scaleH, size.height);
         }
         UIGraphicsBeginImageContext(resultSize);
@@ -190,20 +211,25 @@
 {
     UIImage *newImage;
 
-    switch (orientation) {
-        case UIDeviceOrientationLandscapeLeft: {
+    switch (orientation)
+    {
+        case UIDeviceOrientationLandscapeLeft:
+        {
             newImage = [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationRight];
             break;
         }
-        case UIDeviceOrientationLandscapeRight: {
+        case UIDeviceOrientationLandscapeRight:
+        {
             newImage = [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationRight];
             break;
         }
-        case UIDeviceOrientationPortraitUpsideDown: {
+        case UIDeviceOrientationPortraitUpsideDown:
+        {
             newImage = [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationRight];
             break;
         }
-        default: {
+        default:
+        {
             newImage = image;
             break;
         }
@@ -215,20 +241,25 @@
 {
     UIImage *newImage;
 
-    switch (orientation) {
-        case UIDeviceOrientationLandscapeLeft: {
+    switch (orientation)
+    {
+        case UIDeviceOrientationLandscapeLeft:
+        {
             newImage = [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationLeft];
             break;
         }
-        case UIDeviceOrientationLandscapeRight: {
+        case UIDeviceOrientationLandscapeRight:
+        {
             newImage = [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationRight];
             break;
         }
-        case UIDeviceOrientationPortraitUpsideDown: {
+        case UIDeviceOrientationPortraitUpsideDown:
+        {
             newImage = [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationDown];
             break;
         }
-        default: {
+        default:
+        {
             newImage = image;
             break;
         }
@@ -302,11 +333,16 @@ static inline CGFloat DegreesToRadians(CGFloat degrees)
 
     CGFloat scaleW = screenSize.width / bSize.width;
     CGFloat scaleH = screenSize.height / bSize.height;
-    if (scaleH < scaleW && scaleH < 1) {
+    if (scaleH < scaleW && scaleH < 1)
+    {
         return CGSizeMake(bSize.width * scaleH, screenSize.height);
-    } else if (scaleW <= scaleH && scaleW < 1) {
+    }
+    else if (scaleW <= scaleH && scaleW < 1)
+    {
         return CGSizeMake(screenSize.width, bSize.height * scaleW);
-    } else {
+    }
+    else
+    {
         return bSize;
     }
 }
@@ -316,9 +352,12 @@ static inline CGFloat DegreesToRadians(CGFloat degrees)
     CGFloat scaleW = cSize.width / bSize.width;
     CGFloat scaleH = cSize.height / bSize.height;
 
-    if (scaleH > scaleW) {
+    if (scaleH > scaleW)
+    {
         return CGSizeMake(bSize.width * scaleH, cSize.height);
-    } else {
+    }
+    else
+    {
         return CGSizeMake(cSize.width, bSize.height * scaleW);
     }
 }
@@ -378,11 +417,15 @@ static inline CGFloat DegreesToRadians(CGFloat degrees)
                      像素点: 分量组成,指针位移,移动分量----> 4个字节 = 一个像素
                      */
                     memcpy(pixel, bitmapData + bytesPerRow * index, bytesPerRow); //给我们的像素点赋值
-                } else {
+                }
+                else
+                {
                     // 在第二个满足马赛克矩阵的坐标之前的所有的坐标
                     memcpy(bitmapData + bytesPerRow * index, pixel, bytesPerRow);
                 }
-            } else {                            // 行向没有被整除的其他的坐标
+            }
+            else
+            {                                   // 行向没有被整除的其他的坐标
                 preIndex = (i - 1) * width + j; //获取当前行上一行的坐标
                 memcpy(bitmapData + bytesPerRow * index, bitmapData + bytesPerRow * preIndex, bytesPerRow);
             }
@@ -417,29 +460,38 @@ static inline CGFloat DegreesToRadians(CGFloat degrees)
     CGContextDrawImage(outputContext, CGRectMake(0.0f, 0.0f, width, height), mosaicImageRef); //  //绘制图片
     CGImageRef resultImageRef = CGBitmapContextCreateImage(outputContext);                    // //创建图片
     UIImage *resultImage = nil;
-    if ([UIImage respondsToSelector:@selector(imageWithCGImage:scale:orientation:)]) {
+    if ([UIImage respondsToSelector:@selector(imageWithCGImage:scale:orientation:)])
+    {
         float scale = [[UIScreen mainScreen] scale];
         resultImage = [UIImage imageWithCGImage:resultImageRef scale:scale orientation:UIImageOrientationUp];
-    } else {
+    }
+    else
+    {
         resultImage = [UIImage imageWithCGImage:resultImageRef];
     }
     //释放
-    if (colorSpace) {
+    if (colorSpace)
+    {
         CGColorSpaceRelease(colorSpace);
     }
-    if (resultImageRef) {
+    if (resultImageRef)
+    {
         CFRelease(resultImageRef);
     }
-    if (mosaicImageRef) {
+    if (mosaicImageRef)
+    {
         CFRelease(mosaicImageRef);
     }
-    if (provider) {
+    if (provider)
+    {
         CGDataProviderRelease(provider);
     }
-    if (context) {
+    if (context)
+    {
         CGContextRelease(context);
     }
-    if (outputContext) {
+    if (outputContext)
+    {
         CGContextRelease(outputContext);
     }
     return resultImage;

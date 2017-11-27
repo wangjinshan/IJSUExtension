@@ -8,7 +8,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-
 @interface CALayer (IJSULayer)
 
 @property (nonatomic) CGFloat js_transformScaleX;    ///< key path "tranform.scale.x"
