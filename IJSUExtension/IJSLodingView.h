@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface IJSLodingView : UIView
 /**
  * 加载

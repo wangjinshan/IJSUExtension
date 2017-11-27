@@ -29,6 +29,4 @@
 + (NSString *)localizedStringForKey:(NSString *)key value:(NSString *)value;
 
 
-
-
 @end

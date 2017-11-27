@@ -8,16 +8,15 @@
 
 #import "NSBundle+IJSUBundle.h"
 
+
 @implementation NSBundle (IJSUBundle)
 
 + (instancetype)_imagePickerBundle
 {
     static NSBundle *jsBundle = nil;
-    if (jsBundle == nil)
-    {
+    if (jsBundle == nil) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"JSPhotoSDK" ofType:@"bundle"];
-        if (!path)
-        {
+        if (!path) {
             path = [[NSBundle mainBundle] pathForResource:@"JSPhotoSDK" ofType:@"bundle" inDirectory:@"Frameworks/JSPhotoSDK.framework/"];
         }
         jsBundle = [NSBundle bundleWithPath:path];
@@ -33,15 +32,11 @@
 + (NSString *)localizedStringForKey:(NSString *)key value:(NSString *)value
 {
     static NSBundle *bundle = nil;
-    if (bundle == nil)
-    {
+    if (bundle == nil) {
         NSString *language = [NSLocale preferredLanguages].firstObject;
-        if ([language rangeOfString:@"zh-Hans"].location != NSNotFound)
-        {
+        if ([language rangeOfString:@"zh-Hans"].location != NSNotFound) {
             language = @"zh-Hans";
-        }
-        else
-        {
+        } else {
             language = @"en";
         }
         bundle = [NSBundle bundleWithPath:[[NSBundle _imagePickerBundle] pathForResource:language ofType:@"lproj"]];
@@ -49,11 +44,6 @@
     NSString *needValue = [bundle localizedStringForKey:key value:value table:nil];
     return needValue;
 }
-
-
-
-
-
 
 
 @end

@@ -24,9 +24,4 @@
 #endif
 
 
-
-
-
-
-
 #endif /* IJSUConst_h */

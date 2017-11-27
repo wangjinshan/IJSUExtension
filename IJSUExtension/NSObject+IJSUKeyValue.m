@@ -8,6 +8,7 @@
 
 #import "NSObject+IJSUKeyValue.h"
 
+
 @implementation NSObject (IJSUKeyValue)
 
 + (instancetype)objectWithKeyValues:(id)keyValues
