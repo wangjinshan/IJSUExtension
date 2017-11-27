@@ -9,13 +9,10 @@
 Pod::Spec.new do |s|
 
  
-
   s.name         = "IJSUExtension"
-<<<<<<< HEAD
-  s.version      = "0.0.3"
-=======
-  s.version      = "0.0.4"
->>>>>>> 83e73fc7f27798fddb738d70ecffc7b36116675d
+
+  s.version      = "0.0.5"
+
   s.summary      = "IJSUExtension for UI."
   s.license          = 'MIT'
   s.author           = { "wangjinshan" => "1096452045@qq.com" }
@@ -28,6 +25,6 @@ Pod::Spec.new do |s|
 
   s.source_files  = "IJSUExtension/*.{h,m}"
 
-  
+
 
 end
