@@ -8,7 +8,6 @@
 
 Pod::Spec.new do |s|
 
- 
 
   s.name         = "IJSUExtension"
   s.version      = "0.0.5"
