@@ -21,7 +21,4 @@
  */
 + (instancetype)objectWithKeyValues:(id)keyValues;
 
-
-
-
 @end
